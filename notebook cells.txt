@@ -1,0 +1,38 @@
+Plotting01 - Notebook Cells
+
+from matplotlib import pyplot as plt
+
+bar_year = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
+bar_snickers = [110, 113, 114, 116, 120, 120, 123, 135]
+bar_mars = [100, 105, 107, 118, 122, 124, 127, 140]
+bar_bounty = [106, 108, 110, 113, 117, 118, 121, 128]
+
+plt.plot(bar_year, bar_snickers)
+plt.plot(bar_year, bar_mars)
+plt.plot(bar_year, bar_bounty)
+plt.legend()
+
+plt.plot(bar_year, bar_snickers, color='#DC143C', linestyle='-', marker='v', linewidth=3, label='Snickers')
+plt.plot(bar_year, bar_mars, color='#CCA43D', linestyle='--', marker='s', linewidth=3, label='Mars')
+plt.plot(bar_year, bar_bounty, color='#7AD7F0', linestyle=':',marker='o', linewidth=3, label='Bounty')
+plt.title('Chocolate bar manufacturing cost ')
+plt.xlabel('Year')
+plt.ylabel('Manufacturing cost / cents')
+plt.grid()
+plt.legend()
+
+
+plt.savefig('myplot01.png')
+
+!ls
+
+!aws s3 ls
+
+!aws s3 cp myplot01.png s3://bucketname
+
+!aws s3 ls s3://bucketname
+
+!aws s3 cp myplot01.png s3://bucketname
+!aws s3 cp plot-tutorial01.ipynb s3://bucketname
+
+
